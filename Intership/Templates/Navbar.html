@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+
+<nav class="navbar navbar-expand-lg ">
+  <div class="container-fluid">
+   
+    <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse center" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center text-dark nav1">
+        <li class="nav-item">
+          <a class="nav-link active center" aria-current="page" href="{% url 'home' %}">HOME</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">
+            ABOUT</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'event' %}">
+              EVENTS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'products' %}">
+              SHOP</a>
+          </li>  
+      </ul>
+    
+      <a class="navbar-brand" href=""><img src="{% static 'Images/houseofboheme4.png' %}" alt="" width="100%"></a>
+      
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center text-dark nav2">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'article' %}">
+            JOURNAL</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">
+            ACCOUNT</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'contact' %}">
+            CONTACT</a>
+        </li>
+        <li class="shop-icon" >
+         
+          <a href="{% url 'cart' %}"> <i class="fa-solid fa-cart-shopping" ></i> </a> 
+          
+        </li>
+        {% if user.is_authenticated %}
+          <div class="stilizo">
+            <p class="userlogin">|{{user.username}}</p>
+            <a href="{% url 'logout' %}" class="register">Log out</a>
+          </div>
+          {% else %}
+          <a href="{% url 'signup' %}" class="register">Signup</a>
+          <a href="{% url 'login' %}" class="register">Login</a>
+          {% endif %}
+      </ul>
+
+    </div>
+    
+  </div>
+  
+</nav>  

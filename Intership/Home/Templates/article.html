@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends 'Index.html' %}
+{% load static %}
+<html lang="en">
+{% block content %}
+<body>
+    <div class="article-top">
+        <h6>BROWSE THE LATEST</h6>
+        <h4>JOURNAL ENTRIES</h4>
+    </div>
+    <div class="container text-center">
+        <div class="row article">
+          {% for article in articles %}
+          <div class="col-12 col-md-6 article1">
+            <a href="../article_Detail/{{article.articles_id}}"><img src="{{article.articles_image.url}}" alt=""></a>
+            <div class="article_info"> 
+                <h6>CATEGORY:{{article.articles_category}}</h6>
+                <a href="../article_Detail/{{article.articles_id}}">{{article.articles_title}}</a>
+                <h6 id="article_written">WRITTEN BY {{article.articles_written}}</h6>
+                <p>{{article.articles_info}}</p>
+                <a href="../article_Detail/{{article.articles_id}}"><button>READ MORE</button></a>
+            </div>
+          </div>
+          {% endfor %}
+          <!-- <div class="col-12 col-md-6 article2">
+            <img src="{% static 'images/article2.jpg' %}" alt="">
+            <div class="article_info">
+                <H6>CATEGORY: STEP INTO MY SANCTUARY</H6>
+                <a href="#">STEP INTO MY SANCTUARY – SALT TEXTILES, ITALY</a>
+                <h6 id="article_written">WRITTEN BY JO BENNING</h6>
+                <p>We caught up with Jordan Storm Louise, the Founder of SALT Textiles, who spent much of lockdown in the countryside of Calabria, Italy. Her 5 words to describe it are; Organic, sacred, gentle, elemental, transient Tell us a bit about SALT Textiles SALT Textiles is a meditation on a craft. A multidisciplinary project exploring conscious […]</p>
+                <button>READ MORE</button>
+            </div>
+          </div> -->
+         
+        </div>
+      </div>
+</body>
+</html>
+{% endblock %} 

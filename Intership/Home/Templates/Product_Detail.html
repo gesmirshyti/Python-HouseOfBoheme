@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+{% extends 'Index.html' %}
+{% load static %}
+<html lang="en">
+{% block content %}
+
+<body>
+
+  <div class="container-fluid text-center col_plote">
+    <div class="row">
+      <div class="col-12 col-md-6 col1_img">
+        <!-- <img src="{% static 'images/p.detail1.jpg' %}" alt=""> -->
+        <!-- <img src="{% static 'images/p.detail2.jpg' %}" alt=""> -->
+        <img src="{{products.product_image.url}}" alt="">
+        <img src="{{products.product_image1.url}}" alt="">
+        <!-- <img src="{{products.product_image2.url}}" alt="">
+        <img src="{{products.product_image3.url}}" alt=""> -->
+      </div>
+      <div class="col-12 col-md-6 col2_info">
+        <h5>{{products.product_title}}</h5>
+        <div class="price">
+          <h4>£{{products.product_price}}</h4>
+        </div>
+        <div class="product_detail_info">
+          <p>{{products.product_description|safe}}</p>
+          <!-- <p>100% Natural | Biodegradable | Sustainable</p>
+              <p>Everything you need to support your yoga practice, including our cork yoga mat, multifunctional strap and cork block.</p>
+              <p>Our House of Bohème yoga mat is made of sustainably harvested cork and natural tree rubber. It is durable and hard-wearing, yet beautifully soft to the touch. Cork is naturally antibacterial, antimicrobial and antifungal, keeping your mat clean and odour-free. It is also slip-proof: the more you sweat, the stronger the grip on the cork finish.</p>
+              <p>The mat is 4mm thick, making it the perfect balance between a good amount of cushion and bounce, whilst also being lightweight and easy to carry.</p>
+              <p>Our yoga mats are not just good for you, they’re good for the planet too. Cork is harvested by hand, carefully stripping the bark from the cork oak tree without killing or damaging it. This makes every tree a renewable source of raw material. The tree is then left intact to fully regenerate its bark. In this phase, they reabsorb 3-5 times more CO2 from the air, offsetting millions of tons of carbon every year.</p>
+              <p>Natural tree rubber is made by extracting a liquid sap, using a process known as tapping, from certain types of tree. Most tree rubber comes from the Hevea brasiliensis tree, also known as the rubber tree.</p>
+              <p>YOGA STRAP</p>
+              <p>Our 100% cotton adjustable strap is multifunctional; use it to carry your mat or as a yoga prop to support different postures within your yoga practice.</p>
+              <p>CORK YOGA BLOCK</p>
+              <p>Use our Yoga Support Block as a support for certain poses, to add grounding or lift to your yoga practice. Sturdy yet lightweight with rounded edges for easier grip, our cork yoga block is 100% natural, sustainable and biodegradable.</p>
+              <p>Cork is naturally antibacterial, antimicrobial and antifungal, making it perfect for a sweaty yoga practice.</p>
+              <p>Here are just some of the ways you can use our cork yoga block to support your practice:</p>
+              <ul>
+                <li>Place under your thoracic spine to open through the chest and heart space</li>
+                <li>Use under your hand as a support in standing balancing poses, such as half moon (Ardha Chandrasana) or under your heels to raise your hips for a crow pose (Bakasana)</li>
+                <li>For a restorative bridge pose, place the block under your sacrum at a height suitable for your body</li>
+              </ul>
+              <p>Yoga mat dimensions 183cm x 61cm weight 2.5kg</p>
+              <p>Yoga block dimensions 23cm x 12cm x 7.5cm weight 0.5kg</p>
+              <p>Taking care of your yoga mat & block: Wipe down with a damp cloth and neutral soap.</p> -->
+
+        </div>
+        <div class="wrapper">
+          <button class="minus">-</button>
+          <span class="num">01</span>
+          <button class="plus">+</button>
+
+        </div>
+        <div class="product_detail_button">
+          <!-- <input type="number" min="0" value="1"> -->
+          <button>
+            <a href="../add_to_cart/{{products.product_id}}" >ADD TO BASKET</a>
+          </button>
+        </div>
+        <div class="product_Detail_link">
+
+          <div class="link1"><a href="{% url 'products' %}">GO TO SHOP</a></div>
+          <div class="link2"><a href="{% url 'cart' %}">VIEW CARD</a></div>
+        </div>
+
+ 
+      </div>
+      {% comment %}
+      <div class="product_detail_button">
+        <button><a href="{% url 'cart' %}">ADD TO BASKET</a></button>
+      </div>
+      <div class="product_Detail_link">
+
+        <div class="link1"><a href="{% url 'products' %}">GO TO SHOP</a></div>
+        <div class="link2"><a href="{% url 'cart' %}">VIEW CARD</a></div>
+        <form action="cart.html" class="link2">
+          <input type="hidden" name="prod_id" value="{{product.id}}">
+          <a href="{% url 'cart' %}">VIEW CARD</a>
+        </form>
+        <a href="{% url 'showcart' %}">Buy Now</a>
+      </div>
+      {% endcomment %}
+    </div>
+  </div>
+  <script>
+    const plus = document.querySelector(".plus"),
+      minus = document.querySelector(".minus"),
+      num = document.querySelector(".num");
+    let a = 1;
+    plus.addEventListener("click", () => {
+      a++;
+      a = (a < 10) ? "0" + a : a;
+      num.innerText = a;
+    });
+
+    minus.addEventListener("click", () => {
+      if (a > 1) {
+        a--;
+        a = (a < 10) ? "0" + a : a;
+        num.innerText = a;
+      }
+    });
+
+  </script>
+</body>
+
+</html>
+{% endblock %}

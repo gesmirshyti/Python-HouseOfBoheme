@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Intership/static/Css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Intership/static/Css/Footer.css">
+</head>
+<body>
+    <!-- fillimi i products session -->
+  
+<div class="container-fluid text-center prod_session my-5">
+    <div class="row">
+      <div class="col">
+        <div class="row  row-cols-1 row-cols-lg-4 row-cols-md-2">
+            <div class="card card1" >
+                <div class="card-body">
+                  <h5 id="card-title"class="card-title">SHOP OUR FAVOURITES</h5>
+                  <p class="card-text">Gumbo beet greens corn soko endive gumbo gourd. Parley shallot courgette tatsoi pea sprouts fava bean callard green.</p>
+                  <a href="#" class="btn btn-primary">SHOP NOW</a>
+                </div>
+              </div>
+            <div class="col">
+              <div class="card text-center">
+                <img src="{% static 'images/prd1.png' %}" class="card2" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">SCENTED CANDLE</h5>
+                  <a href="#" class="btn "><B>£20.00</B></a>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img src="{% static 'images/prd2.png' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">ROOM SPRAY</h5>
+                  <a href="#" class="Priceofcard"><B>£20.00</B></a>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card">
+                <img src="{% static 'images/prd3.png' %}" class="card4" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">VELVET CUSHION</h5>
+                  <a href="#" class="btn"><B>£20.00</B></a>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      
+    </div>
+  </div>
+ 
+<!-- perfundimi i products session -->
+</body>
+</html>

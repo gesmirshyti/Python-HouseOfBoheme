@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% extends 'Index.html' %}
+{% block tile %}Cart{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="my-5">
+    <h2>Your Cart</h2>
+  </div>
+  {% if messages %}
+
+  {% for message in messages %}
+  <div class="alert alert-{{message.tags}}" role="alert">
+    {{ message }}
+  </div>
+  {% endfor %}
+
+  {% endif %}
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col" width="15%">#</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Quantity</th>
+        <th scope="col" align="right">Price</th>
+        <th scope="col">Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for cart in carts %}
+      <tr>
+        <!-- Numeron Rreshtat -->
+        <th scope="row">{{ forloop.counter }}</th>
+        <!-- Emri i produktit i vendosur ne cart -->
+        <td>{{ cart.item.product_title }}</td>
+        <td>
+          <!-- Ulja e numrit te produkteve -->
+          <a class="mr-2" href="{% url 'decrease_item' pk=cart.item.pk %}"><span class="badge badge-light"><i
+                class="fas fa-minus" style="color: #c53131; font-size: 16px;"></i></span></a>
+          <!-- shfaqja e numrit te produktit -->
+          {{cart.quantity }}
+          <!-- Shtimi i numrit te produktit -->
+          <a class="mr-2" href="{% url 'increase_item' pk=cart.item.pk %}"><span class="badge badge-light"><i
+                class="fas fa-plus" style="color: #c53131; font-size: 16px;"></i></span></a>
+        </td>
+        <!-- Totali i te gjitheve produkteve -->
+        <td>All {{ cart.get_total }}</td>
+        <!-- heqja e produktit nga lista -->
+        <td><a href="{% url 'remove_item' pk=cart.item.pk  %}" class="btn btn-danger btn-sm">Remove From
+            Cart</a> </td>
+      </tr>
+      {% endfor %}
+
+      <tr>
+        <th scope="row"></th>
+        <td colspan="2">Total</td>
+        <td class="fw-bold">All {{ order.get_totals | floatformat:2 }}</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th scope="row"></th>
+        <td colspan="4" class="text-right" align="right">
+          <a href="{% url 'products' %}" class="btn btn-warning mr-4">Continue Shopping</a>
+          <a href="{% url 'checkout1' %}" class="btn btn-warning mr-4">Payment</a>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+{% endblock %}

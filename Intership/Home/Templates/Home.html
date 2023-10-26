@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% extends 'Index.html' %}
+{% load static %}
+<html lang="en">
+    {% block content %}
+    {% include 'Blockcontent.html' %}
+    <!-- fillimi i expression session -->
+    <div class="container-fluid text-center exp_session ">
+        <div class="row">
+          <div class="col-12 col-md-6 " >
+            <div class="exp" >
+                "A UNIQUE BLEND OF CEDAR WOOD, OLIVE LEAF AND WHITE MUSK, ATLAS CEDAR IS INSPIRED BY THE REMOTE MOUNTAINS OF MARRAKESH"
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="exp_img" >
+                <img src="{% static 'images/exp_img.jpg' %}" alt="">
+        
+            </div>
+          </div>
+        </div>
+      </div>    
+<!-- perfundimi i expression session -->
+<!-- fillimi i products session -->
+<div class="container-fluid text-center prod_session py-3">
+    <div class="row">
+      <div class="col">
+        <div class="row  row-cols-1 row-cols-lg-4 row-cols-md-2">
+            <div class="karte card1" >
+                <div class="karte-body">
+                  <h5 id="karte-title"class="karte-title">SHOP OUR FAVOURITES</h5>
+                  <p class="karte-text">Gumbo beet greens corn soko endive gumbo gourd. Parley shallot courgette tatsoi pea sprouts fava bean callard green.</p>
+                  <a href="#" class="btn shop_btn" id="kjo">SHOP NOW</a>
+                </div>
+              </div>
+            <div class="col">
+              <div class="karte text-center">
+                <img src="{% static 'images/prd1.png' %}" class="card2" alt="...">
+                <div class="karte-body">
+                  <h5 class="ksrte-title">SCENTED CANDLE</h5>
+                  <a href="#" class="price "><B>£20.00</B></a>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="karte">
+                <img src="{% static 'images/prd2.png' %}" class="card-img-top" alt="...">
+                <div class="karte-body">
+                  <h5 class="karte-title">ROOM SPRAY</h5>
+                  <a href="#" class="price"><B>£20.00</B></a>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="karte">
+                <img src="{% static 'images/prd3.png' %}" class="card4" alt="...">
+                <div class="karte-body">
+                  <h5 class="karte-title">VELVET CUSHION</h5>
+                  <a href="#" class="price"><B>£20.00</B></a>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      
+    </div>
+  </div>
+<!-- perfundimi i products session -->
+    {% include 'description.html' %}
+    <div class="container-fluid carousel">
+      <div class="marquee">
+        <h5>@THEHOUSEOFBOHEME</h5>
+        <ul class="marquee-content">
+          <li><img src="{% static 'Images/slide1.jpg' %}" alt=""></i></li>
+          <li><img src="{% static 'Images/slide2.jpg' %}" alt=""></i></li>
+          <li><img src="{% static 'Images/slide3.jpg' %}" alt=""></i></li>
+          <li><img src="{% static 'Images/slide4.jpg' %}" alt=""></i></li>
+          <li><img src="{% static 'Images/slide5.jpg' %}" alt=""></i></li>
+        </ul>
+      </div>
+    </div>
+  <script>
+    const root = document.documentElement;
+const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue("--marquee-elements-displayed");
+const marqueeContent = document.querySelector("ul.marquee-content");
+
+root.style.setProperty("--marquee-elements", marqueeContent.children.length);
+
+for(let i=0; i<marqueeElementsDisplayed; i++) {
+  marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
+}
+  </script>
+</body>
+</html>
+{% endblock %}
+

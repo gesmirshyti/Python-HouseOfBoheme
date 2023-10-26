@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% extends 'Index.html' %}
+{% load static %}
+<html lang="en">
+{% block content %}
+
+<body>
+  <div class="container text-center">
+    <div class="row">
+      {% for product in products %}
+      <div class="col-12 col-lg-4 col-md-6 ">
+        <div class="product-card">
+          <div class="products-icon">
+            <i class="fa-regular fa-heart icon"></i>
+          </div>
+          <a href="../Product_Detail/{{product.product_id}}"><img src="{{product.product_image.url}}"
+              class="card-img-top" alt="..."></a>
+          <div class="products-card-body">
+            <h5 class="card-title">{{product.product_title}}</h5>
+            <a href="{% url 'cart' %}" class="price"><b>£{{product.product_price}}</b></a>
+          </div>
+          <div class="products-button">
+           
+            <a href="{% url 'cart' %}" pid="{{product.Product_Detail}}">QUICK ADD</a>
+           
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+
+</html>
+{% endblock %}

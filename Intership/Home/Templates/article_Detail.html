@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% extends 'Index.html' %}
+{% load static %}
+<html lang="en">
+{% block content %}
+<body>
+    <div class="image">
+        <img src="{{articles.articles_image.url}}" alt="">
+    </div>
+    <div class="container article_detail_text text-center">
+        <h6>CATEGORY:{{articles.articles_category}}</h6>
+        <H4>{{articles.articles_title}} </H4>
+        <h5>{{articles.articles_subtitle}}</h5>
+        
+        <h6>{{articles.articles_update}}</h6>
+        <hr>
+        <!-- <p class="pjesa1">If we really HAD to choose just one yoga prop we love to use the most, it would have to be the bolster. Yoga bolster cushions are soft and supportive yet firm, versatile and very huggable! Here are a few of our favourite ways to use a bolster to support yourself, whether that’s during yoga or meditation, for sleep or simply to help ground yourself.</p> -->
+        <!-- <p><b>1. To help you calm down and sleep.</b>Viparita Karani, or legs up the wall, is an inversion, backbend and a restorative pose all at the same time. Raising your hips and legs up a wall for this supported inversion can help to stimulate the baro reflex; a chain of chemical reactions that suppress the sympathetic nervous system (fight or flight) and help us rest in our parasympathetic (rest and digest) side. It can take a bit of shuffling to get close enough to the wall! Place the bolster widthways underneath your sacrum and let your legs rest against the wall. Stay here for 5 minutes, or more if you like, close your eyes, and just focus on the quality of your breath. Count them if that helps you get out of your thoughts. One thing I like to do is bring one hand to my heart, one to my belly, just to gently notice the rise and fall of my body with my breath.</p>
+        <p><b>2. To open your chest and shoulders for some anti-desk yoga.</b> So many of us are now spending all day hunched or rounded over our laptops, leading to bad posture, a sore neck and back and tight-feeling chest muscles. Counteract all the sitting with some expansive, supported backbends. Backbends expand the ribcage for deeper breaths and open the heart space.We like to do Supta Baddha Konasana (reclining bound angle pose) over our bolsters to open and stretch through the chest. Place your bolster beneath you, lengthways up your spine. With your sacrum touching the end of the bolster, roll your spine slowly down onto it, and visualise finding more length as you lower. Then either straighten your legs down, or bring the soles of your feet together, knees wide to open through the groin too. Wiggle your shoulders back and down away from your ears, arms out to the side. Stay here for 3-10 minutes, with every exhale visualising your chest melting open around the bolster.</p>
+        <p><b>3. To ground yourself and feel safe.</b> Place your bolster over your hips. This gentle, heavy pressure acts like a gravity blanket, helping to lower anxiety and calm your body and mind. Deep pressure therapy (either firm touch, swaddling or using weighted items like a bolsters or gravity blanket) helps to activate the parasympathetic nervous system and stimulates the production of serotonin and dopamine, which are known to have a calming and relaxing effect. </p>
+        <p><b>4. To cuddle in Child’s Pose or for restorative twists.</b> If you have ever practiced yin yoga or restorative yoga, you’ll know the classes often require a bolster or two or three! Bolsters, blankets and cushions can be used in many different ways to support your practice and make sure you’re comfortable in these classes, enabling you to further relax. I remember going to a restorative yoga class years ago and the teacher saying “hug your little bolster” ALL the time, which has stayed with me and now I love hugging it! </p>
+        <p><b>5. To sit on while meditating.</b> To sit on while meditating.You could also use your bolster underneath you whilst cross-legged to raise your hips and lower your knees for a straighter taller spine whilst sitting in meditation. Alternatively, if you prefer to kneel, place it under your pelvis to take any pressure or strain out of your knees.</p> -->
+        <p class="pjesa1">{{articles.articles_description|safe}}</p>
+        <div class="hashtag">
+            <a href="#">{{articles.articles_hashtag|safe}}</a> 
+        </div>
+        <!-- <div class="hashtag">
+          <a href="#">#MINDFULNESS</a> <a href="#">#BREATH WORK</a> <a href="#">#MEDITATION</a> <a href="#">#YOGO</a>
+      <a href="#">#JOURNALLING</a> <a href="#">#MORNING RITUALS</a> <a href="#">#MORNING ROUTINE</a>
+      </div> -->
+    </div>
+    
+
+    
+   
+    
+   
+</body>
+</html>
+{% endblock %} 
+<!-- duhet vendosyr ne rrshtin 32, pas div -->
+ <!--<div class="container text-center article_Detail_also">
+      <h3>YOU MIGHT ALSO LIKE</h3>
+      <div class="row">
+        <div class="col-12 col-md-6 article1">
+          <a href="{% url 'article_Detail' %}"><img src="{% static 'images/article1.jpg' %}" alt=""></a>
+          <div class="article_info"> 
+              <h6>CATAEGORY: BODY</h6>
+              <a href="{% url 'article_Detail' %}">5 WAYS TO USE YOUR YOGA BOLSTER</a>
+              <h6 id="article_written">WRITTEN BY JO BENNING</h6>
+              <p>If we really HAD to choose just one yoga prop we love to use the most, it would have to be the bolster. Yoga bolster cushions are soft and supportive yet firm, versatile and very huggable! Here are a few of our favourite ways to use a bolster to support yourself, whether that’s during yoga […]</p>
+              <a href="{% url 'article_Detail' %}"><button>READ MORE</button></a>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 article2">
+          <img src="{% static 'images/article2.jpg' %}" alt="">
+          <div class="article_info">
+              <H6>CATEGORY: STEP INTO MY SANCTUARY</H6>
+              <a href="#">STEP INTO MY SANCTUARY – SALT TEXTILES, ITALY</a>
+              <h6 id="article_written">WRITTEN BY JO BENNING</h6>
+              <p>We caught up with Jordan Storm Louise, the Founder of SALT Textiles, who spent much of lockdown in the countryside of Calabria, Italy. Her 5 words to describe it are; Organic, sacred, gentle, elemental, transient Tell us a bit about SALT Textiles SALT Textiles is a meditation on a craft. A multidisciplinary project exploring conscious […]</p>
+              <button>READ MORE</button>
+          </div>
+        </div>
+       
+      </div>
+    </div> 

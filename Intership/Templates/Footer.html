@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+
+<footer>
+  <div class="container ">
+    <div class="row">
+      <div class="col-12  col-lg-4 ">
+
+          <div class="container footer-text">
+            <h4>NEWSLETTER SING UP</h4>
+          </div>
+          <div class="email" >
+            <form action="">
+               <input type="email" class="sub_form" id="email"  placeholder=  "Email Adress"  required> 
+              <button type="submit" class="sub_button">SUBSCRIBSE <i class="fa-solid fa-arrow-right"></i></button>
+            </form>
+          </div>
+      </div>
+      <div class="col-12 col-lg-3 footer-logo">
+        <img src="{% static 'images/fearn.gif' %}" alt="" style="object-fit: cover;">
+      </div>
+      <div class="col-12 col-lg-5 ft footer-list">
+
+        <div class="row footer-text footer-title ">
+          <h4>ADITIONAL INFO</h4>
+          <div class="col">
+            <ul>
+              <li> <a href="{% url 'contact' %}"> <i>Shipping</i></a> </li>
+              <li> <a href="#"><i>Privacy Policy</i> </a>  </li>
+              <li> <a href="#"> <i> Terms & Conditions</i> </a></li>
+            </ul>
+          </div>
+          <div class="col">
+            <ul>
+              <li> <a href="{% url 'article' %}"> <i>Refunds & Returns</i> </a></li>
+              <li> <a href="#"> <i>Giving Back</i> </a> </li>
+              <li> <a href="{% url 'products' %}"> <i>Filling Sugestions</i> </a> </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row link" id="footer-link">
+          <i>
+          <a href="https://www.facebook.com/">Facebook</a>
+          <a href="https://www.instagram.com/">Instagram</a>
+          <a href="https://twitter.com/?lang=en">Twitter</a>
+         </i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</footer>

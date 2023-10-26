@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+{% extends 'Index.html' %}
+{% load static %}
+{% block title %}Buy Now{% endblock title %}
+<html lang="en">
+    {% block content %}
+<div class="container">
+    {% if messages %}
+    {% for msg in messages %}
+    <div class="alert alert-danger" role="alert">
+        {{msg}}
+    </div>
+    {% endfor %}
+{% endif %}
+<div class="row mt-5">
+    <div class="col-sm-6">
+        <h4>Order Summary</h4>
+    </div>
+<hr>
+{% for item in cart_items %}
+<div class="card mb-2">
+    <div class="card-body">
+        <h5>Product: {{item.product.title}}</h5>
+        <p>Quantity: {{item.quantity}}</p>
+        <p class="fw-bold">Price: {{item.product.price}}</p>
+    </div>
+</div>
+{% endfor %}
+<p class="fw-bold"> Total Cost is : {{totalcost}}</p>
+<small>This is the Terms & Conditions</small>
+</div>
+<!-- <div class="col-sm-4 offset-sm-1">
+    <h4>Select Shipping Address</h4>
+    <hr>
+    <form action="" method="POST" id="myform">
+        {% csrf_token %}
+        {% for ad in add %}
+        <div class="card">
+            <div class="card-body">
+                <h5>{{ad.name}}</h5>
+                <p>Mobile: {{ad.mobile}}</p>
+                minuta e 4:20 -->
+           <!--  </div>
+            <div class="form-check mt-2 mb-5">
+                <input type="radio" class="form-check-input" name="custid" id="custadd{{forloop.counter}}" value="{{ad.id}}">
+                <label class="form-check-label fw-bold" for="custid{{forloop.counter}}">
+                Address:{{forloop.counter}}</label>
+            </div>
+            {% endfor %}
+            <div class="form-check mt-2 mb-5">
+                <label for="totamount" class="form-control">Total Amount</label>
+                <input type="number" class="form-control" name="totamount" value="{{totalamount}}" readonly>
+            </div>
+            <div class="text-end">
+                <button type="submit" class="btn btn-warning mt-3 px-5 fw-bold">Continue</button>
+                <button id="rzp-button1" type="submit" class="btn btn-warning mt-3 px-5 fw-bold">Payment</button> 
+            </div>
+        </div>
+    </form>
+</div> -->
+
+
+
+
+
+    <div class="container-fluid" id="checkout">
+
+        <form action="">
+    
+            <div class="row">
+    
+                <div class="col" id="shipping-info">
+    
+                    <h3 class="title">billing address</h3>
+                   
+                    <div class="inputBox">
+                        <span>Name On Card*</span>
+                        <input type="text" required placeholder="Name Surname">
+                    </div>
+                    <div class="inputBox">
+                        <span>Card Number*</span>
+                        <input type="number"required placeholder="1111-2222-3333-4444">
+                    </div>
+
+    
+                </div>
+    
+                <div class="col">
+    
+                    <h3 class="title">Payment</h3>
+                    <div class="inputBox">
+                        <span>cards accepted </span>
+                        <img src="{% static 'images/card_img.png' %}" alt="">
+                    </div>
+    
+                    <div class="flex">
+                        <div class="inputBox">
+                            <span>Expiry Date*</span>
+                            <input id="bday-month" type="month" name="bday-month" required/>
+                        </div>
+                        <div class="inputBox">
+                            <span>CVV*</span>
+                            <input type="number" placeholder="123" required>
+                        </div>
+                    </div>
+    
+                </div>
+        
+            </div>
+    
+            <input type="submit" value="proceed to checkout" class="submit-btn">
+    
+        </form>
+    
+    </div>
+    
+</div>
+ 
+    {% endblock %}
+
+    {% block payment-gateway %}
+    <script>
+        // var options = {
+        //     "key":"rzp_test_2TUHCJnGDCobwu",
+        //     "amount":"{{razamount}}",
+        //     "currecncy":"EUR",
+        //     "name":"House of Boheme",
+        //     "description":"Purchase Product",
+        //     "order_id":"{{order_id}}",
+        //     "handler": function(response){
+        //         console.log("success")
+        //         var form = document.getElementById("myform");
+
+
+        //         window.location.href='https://localhost:8000/paymentdonefolder_id=${response.razorpay_order_id}&payment_id=${response.razorpay_payment_id}&cust_id=${form.elements["custid"].value}'
+        //     },
+        //     "theme":{
+        //         "color":"#3399cc"
+        //     }
+        // };
+        // var rzp1 = new Razorpay(options);
+        // rzp1.on('payment.failed',function(response){
+        //     alert(response.error.description);
+        // });
+        // document.getElementById('rzp-button1').onclick = function(e){
+        //     console.log("button click");
+        //     rzp1.open();
+        //     e.preventDefault();
+        // }
+
+
+
+        var shipping = '{{order.shipping}}'
+
+        if (shipping == 'False'){
+            document.getElementById('shipping-info').innerHTML = ''
+        }
+        var form = document.getElementById('submit',  function(e) {
+            e.preventDefault()
+            console.log('form submited...')
+            document.getElementById('form-button').classList.add('hidden')
+            document.getElementById('payment-info').classList.remove('hidden')
+        })
+    </script>    
+
+{% endblock payment-gateway %}

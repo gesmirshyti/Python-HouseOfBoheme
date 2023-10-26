@@ -1,0 +1,52 @@
+/* fillon stiliziomi i product session */
+.prod_session{
+    background-color: #F5F0EA;
+}
+.card-title{
+    font-family: Gideon Roman;
+
+}
+#card-title{
+    font-family: Gideon Roman;
+    font-size: 35px;
+    
+}
+.card-text{
+    font-family: joan;
+    font-size: medium;
+} 
+.btn-primary{
+    background-color: black;
+    border-radius: 0%;
+    width: 70%;
+    border: black;
+}
+.btn-primary:hover{
+    background-color: black;
+}
+.btn-primary:active{
+    background-color: black;
+}
+.btn:active{
+    border: none;
+}
+.card{
+    background-color: #F5F0EA;
+    border: none;
+}
+.card img{
+    height: 250px;
+    width: 70%;
+    margin-left: 15%
+   
+}
+.card2{
+    
+    margin-top: 0%;
+}
+.card4{
+    margin-top: 0%;
+} 
+.card1{
+    margin-top: 2.5%;
+}

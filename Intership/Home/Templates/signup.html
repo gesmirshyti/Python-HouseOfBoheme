@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% extends 'Index.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid p-5 mx-auto shkence">
+    <h1 class="my-3">Sign up</h1>
+    <form method="POST" class="w-50 py-5 mx-auto">
+        {% csrf_token %}
+        <!-- <div class="input-field">
+            <input type="text" class="input" placeholder="Username" id="">
+            <i class='bx bx-user' ></i>
+        </div>
+
+        <div class="input-field">
+            <input type="Password" class="input" placeholder="Password" id="">
+            <i class='bx bx-lock-alt'></i>
+        </div>
+
+        <div class="input-field">
+            <input type="Password" class="input" placeholder="Confirm Password" id="">
+            <i class='bx bx-lock-alt'></i>
+        </div> -->
+
+        {% for f in form %}
+        <div class="mt-3">
+            <label for="{{f.auto.id}}" class="form-label">{{f.label}}</label>
+            {{f}}
+            {% for error in f.errors %}
+            <span class="text-danger">{{error}}</span>
+        
+        {% endfor %}
+        </div>
+        {% endfor %}
+        <div class="two-col">
+            <div class="one">
+               <input type="checkbox" name="" id="check">
+               <label for="check"> Remember Me</label>
+            </div>
+            <div class="one">
+                <label><a href="#">Forgot password?</a></label>
+            </div>
+        </div>
+        <div class="login_button">
+             <input type="submit" value="Sign up" class="btn btn-dark mt-5">
+        </div>
+        
+        <div class="signup">
+            <div class="one">
+              <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
